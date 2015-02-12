@@ -185,9 +185,8 @@ int main()
                     prevColor = 255;
                 } else if (gray_intensity == 0) {
                     if (prevColor == 255) {
-                        if (widthCount > 5 && widthCount < 100) {
+                        if (widthCount > 20 && widthCount < 100) {
                             changeCount++;
-                            line(frameDest, Point(i,j), Point(i-100,j), CV_RGB(100.0, 100.0, 100.0), 3);
                             //                        frameDest.at<uchar>(i,j) = 255;
                         }
                     }
@@ -216,9 +215,9 @@ int main()
         cout << maxKey << "\n";
         
         std::string max = std::to_string(maxKey);
-        line(frameDest, Point(600,400), Point(605,400), CV_RGB(255.0, 255.0, 255.0), 5);
-        line(frameDest, Point(600,410), Point(700,410), CV_RGB(255.0, 255.0, 255.0), 5);
-        putText(frameDest, max, Point(10,100), FONT_HERSHEY_PLAIN, 5.0, CV_RGB(255.0, 255.0, 255.0), 2);
+//        line(frameDest, Point(600,400), Point(620,400), CV_RGB(255.0, 255.0, 255.0), 5);
+//        line(frameDest, Point(600,410), Point(700,410), CV_RGB(255.0, 255.0, 255.0), 5);
+        putText(frame, max, Point(10,100), FONT_HERSHEY_PLAIN, 5.0, CV_RGB(255.0, 255.0, 255.0), 2);
 
 //        if (maxKey == 1) {
 //            putText(frameDest, "1", Point(100,500), FONT_HERSHEY_PLAIN, 1.0, CV_RGB(255.0, 255.0, 255.0), 5);
@@ -230,10 +229,10 @@ int main()
 //            putText(frameDest, "4", Point(100,500), FONT_HERSHEY_PLAIN, 1.0, CV_RGB(255.0, 255.0, 255.0), 5);
 //        }
         
-        imshow("MyVideoFore", frameDest);
+        imshow("MyVideoFore", frame);
         
         //wait for 'esc' key press for 30ms. If 'esc' key is pressed, break loop
-        if (waitKey(300) == 27)
+        if (waitKey(30) == 27)
         {
             cout << "esc key is pressed by user" << endl;
             break;
