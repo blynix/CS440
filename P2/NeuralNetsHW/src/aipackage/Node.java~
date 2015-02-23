@@ -49,16 +49,8 @@ public class Node {
         return m_beta;
     }
     
-    public void setBeta(double b) {
-        m_beta = b;
-    }
-    
     public Connection getOutputConnection(int j) {
         return m_output_conn.get(j);
-    }
-    
-    public List<Connection> getOutputConnections() {
-        return m_output_conn;
     }
     
     public List<Connection> getInputConnection() {
@@ -92,7 +84,7 @@ public class Node {
     private double m_beta;
     
     private int m_pos;  // starting from 0
-    private int m_layer;  // starting from 0
+    private int m_layer;  // starting form 0
 }
 
 

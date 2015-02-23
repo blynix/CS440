@@ -6,7 +6,6 @@
 package aipackage;
 
 import java.util.Iterator;
-import java.util.ListIterator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
@@ -115,44 +114,7 @@ public class NeuralNet {
     // r: rate parameter
     public void train(double [][] inputvs, double [][] outputvs, double r) throws RuntimeException
     {
-        double error = 1.0;
-        while(error < 0.1) {  //until performance is satisfactory
-            
-            for (int i = 0; i < inputvs.length; ++i) {  //for each sample input
-                double[] compOut = evaluate(inputvs[i]);  //compute resulting output
-                
-                for (Node node: m_layers.get(m_layers.size())) {
-                    node.setBeta(outputvs[i][node.getPos()] - node.getOutput());  //compute beta for nodes in the output layer
-                }
-                
-                ListIterator<List<Node>> iter = m_layers.listIterator(m_layers.size());
-                while(iter.hasPrevious()) {
-                    List<Node> layer = iter.previous();
-                    for (Node node: layer) {
-                        double summation = 0.0;
-                        ListIterator<Connection> iterOutCon = node.getOutputConnections().listIterator();
-                        while(iterOutCon.hasNext()) {
-                            Connection connection = iterOutCon.next();
-                            double weight = connection.getWeight();
-                            double oK = connection.getToNode().getOutput();
-                            double betaK = connection.getToNode().getBeta();
-                            summation += weight * oK * (1 - oK) * betaK;
-                        }
-                        node.setBeta(summation);  //compute beta for all other nodes
-                        
-                        ListIterator<Connection> iterInCon = node.getInputConnection().listIterator();
-                        while(iterOutCon.hasNext()) {
-                            Connection connection = iterInCon.next();
-                            double oI = connection.getFromNode().getOutput();
-                            double oJ = node.getOutput();
-                            double betaJ = node.getBeta();
-                            connection.setDeltaw(r * oI * oJ * (1 - oJ) * betaJ);  //compute weight changes for all weights
-                        }
-                    }
-                }
-            }
-            
-        }
+        // todo add your code here
     }
         
     // This method shall change the input and output of each node.

@@ -37,8 +37,6 @@ public class NeuralNetLearner {
         for (int n = 0; n < 300; ++n) {
             net.train(inputvs, outputvs, 1);
         }
-        
-        System.out.println(net.evaluate(inputvs[0])[0]);
 
         net.errorrate(inputvs, outputvs);
         System.out.println("============================");

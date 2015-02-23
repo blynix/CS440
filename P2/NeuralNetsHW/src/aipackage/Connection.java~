@@ -27,18 +27,6 @@ public class Connection {
         return m_weight;
     }
     
-    public void setWeight(double w) {
-        m_weight = w;
-    }
-    
-    public double getDeltaw() {
-        return m_deltaw;
-    }
-    
-    public void setDeltaw(double d) {
-        m_deltaw = d;
-    }
-    
     private double m_weight;
     private double m_deltaw;
 
